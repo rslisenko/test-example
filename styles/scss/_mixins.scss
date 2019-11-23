@@ -1,0 +1,18 @@
+// mixins
+$max-1920: "(max-width: 1920px)";
+$max-1023: "(max-width: 1023px)";
+$max-991: "(max-width: 991px)";
+$max-767: "(max-width: 767px)";
+
+$min-1024: "(min-width: 1024px)";
+$min-992: "(min-width: 992px)";
+$min-768: "(min-width: 768px)";
+
+$desctop: $min-1024;
+$mobile: $max-1023;
+$tablet: "#{$min-768} and #{$max-1023}";
+$phone: $max-767;
+
+@mixin mq($screen) {
+	@media all and #{$screen} { @content; }
+}

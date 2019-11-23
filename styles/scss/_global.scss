@@ -1,0 +1,61 @@
+//
+body {
+	font-family: $main_font;
+	font-size: 14px;
+}
+p {
+	line-height: 1.4;
+}
+.contain {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.cover {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+button,
+.btn {
+	position: relative;
+	display: inline-block;
+	min-width: 100px;
+	padding: 10px 25px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: left;
+	@include mq($mobile) {
+		min-width: 180px;
+		padding: 20px 30px;
+		font-size: 20px;
+	}
+	&--blue {
+		color: $white;
+		background-color: $blue;
+	}
+	&--with-arrow {
+		padding-right: 50px;
+		&:after {
+			content: "";
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+			border: 1px solid $white;
+			background-image: url('../images/arrow-right.png');
+			background-size: 10px;
+			background-position: center;
+			background-repeat: no-repeat;
+			@include mq($mobile) {
+				width: 30px;
+				height: 30px;
+				background-size: 15px;
+				border: 1px solid $white;
+			}
+		}
+	}
+}

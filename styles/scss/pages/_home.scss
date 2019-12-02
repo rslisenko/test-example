@@ -93,6 +93,7 @@
 			}
 		}
 		.left {
+			position: relative;
 			width: 50%;
 			height: 100%;
 			display: flex;
@@ -107,6 +108,17 @@
 				width: 100%;
 				height: 100%;
 				background-color: $blue;
+			}
+			.top {
+				position: absolute;
+				z-index: 5;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				transform: rotateZ(8deg) rotateX(180deg) skewX(-8deg);
+				transform-origin: left top;
+				background-color: $white;
 			}
 			.inner {
 				position: relative;

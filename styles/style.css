@@ -159,6 +159,7 @@ button,
           -ms-transform: rotate(6deg);
           transform: rotateZ(6deg); } }
     .test-block__content .left {
+      position: relative;
       width: 50%;
       height: 100%;
       display: -webkit-box;
@@ -176,6 +177,19 @@ button,
         width: 100%;
         height: 100%;
         background-color: #3062FF; }
+      .test-block__content .left .top {
+        position: absolute;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        -webkit-transform: rotateZ(8deg) rotateX(180deg) skewX(-8deg);
+        transform: rotateZ(8deg) rotateX(180deg) skewX(-8deg);
+        -webkit-transform-origin: left top;
+        -ms-transform-origin: left top;
+        transform-origin: left top;
+        background-color: #fff; }
       .test-block__content .left .inner {
         position: relative;
         width: 100%;

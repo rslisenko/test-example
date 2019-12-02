@@ -2,9 +2,7 @@
 .test-block {
 	position: relative;
 	width: 100%;
-	max-width: 1100px;
-	max-height: calc(100vh - 150px);
-	height: 450px;
+	min-height: 60vh;
 	margin: 150px auto 0;
 	display: flex;
 	flex-wrap: wrap;
@@ -16,122 +14,151 @@
 		top: 0;
 		width: 100%;
 		height: 100%;
-		perspective: 250px;
-		@include mq($mobile) {
-			position: relative;
+		// @include mq($mobile) {
+		// 	position: relative;
+		// 	z-index: 5;
+		// 	top: -15vw;
+		// 	height: auto;
+		// 	padding-bottom: 90%;
+		// 	order: 2;
+		// 	perspective: none;
+		// }
+		.top {
+			position: absolute;
 			z-index: 5;
-			top: -15vw;
-			height: auto;
-			padding-bottom: 90%;
-			order: 2;
-			perspective: none;
-		}
-		.left {
-			position: relative;
-			top: -4px;
 			width: 100%;
-			transform: translate(30px) rotateY(8deg);
-			clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
-			background-color: $blue;
-			background-blend-mode: multiply;
-			background-image: url('../images/image.jpg');
-			@include mq($mobile) {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				transform: none;
-				clip-path: polygon(0 15%, 100% 0, 100% 80%, 0 100%);
-				background-image: url('../images/image-2.jpg');
-			}
+			height: 100%;
 			&:before {
 				content: "";
 				position: absolute;
-				z-index: 1;
-				top: 0;
 				left: 0;
-				width: 10%;
+				top: 0;
+				width: 50%;
 				height: 100%;
-				background: linear-gradient(-15deg, $blue 70%, $gray 70%);
-				border-right: 10px solid $white;
-				box-sizing: border-box;
-				@include mq($mobile) {
-					width: 110%;
-					height: 2vw;
-					top: 27%;
-					right: -4px;
-					left: initial;
-					background: $white;
-					border: none;
-					transform-origin: right;
-					transform: rotateZ(6deg);
-				}
+				background-color: $white;
+				transform: rotateZ(8deg) rotateX(180deg) skewX(-8deg);
+				transform-origin: left top;
 			}
-		}
-		.right {
-			position: relative;
-			top: 4px;
-			width: 100%;
-			transform: translate(-30px) rotateY(-8deg);
-			clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
-			background: $gray;
 			&:after {
 				content: "";
 				position: absolute;
-				width: 100%;
-				height: 25%;
-				bottom: 0;
-				left: 0;
-			    background: linear-gradient(to top left, $blue 50%, $gray 50%);
+				right: 0;
+				top: 0;
+				width: 50%;
+				height: 100%;
+				background-color: $white;
+				transform: rotateZ(-8deg) rotateX(180deg) skewX(8deg);
+				transform-origin: right top;
 			}
+
 		}
 	}
 	&__content {
+		width: 100%;
 		position: relative;
 		display: flex;
 		flex-wrap: wrap;
 		align-content: center;
 		justify-content: center;
 		z-index: 2;
-		width: 50%;
-		margin-left: 50%;
-		@include mq($mobile) {
-			margin-left: 0;
-			width: 100%;
-			padding: 200px 10vw 20vw;
-			background: $gray;
-			clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
-		}
-		.inner {
-			position: relative;
-			z-index: 2;
-			max-width: 80%;
-			margin-left: 15%;
+		// @include mq($mobile) {
+		// 	margin-left: 0;
+		// 	width: 100%;
+		// 	padding: 200px 10vw 20vw;
+		// 	background: $gray;
+		// 	clip-path: polygon(0 15%, 100% 0, 100% 100%, 0 100%);
+		// }
+		&:before {
+			content: "";
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100px;
+			height: 100%;
+			background: linear-gradient(-8deg, $blue 70%, $gray 70%);
+			border-right: 10px solid $white;
+			box-sizing: border-box;
 			@include mq($mobile) {
-				max-width: 100%;
-				margin-left: auto;
-				margin-right: auto;
-				text-align: center;
+				width: 110%;
+				height: 2vw;
+				top: 27%;
+				right: -4px;
+				left: initial;
+				background: $white;
+				border: none;
+				transform-origin: right;
+				transform: rotateZ(6deg);
 			}
-			p {
+		}
+		.left {
+			width: 50%;
+			height: 100%;
+			display: flex;
+			background-color: $blue;
+			transform: skewX(-10deg);
+			overflow: hidden;
+			.inner {
+				position: relative;
+				width: 100%;
+				max-width: 550px;
+				margin-left: auto;
+				transform: skewX(10deg);
+				transform-origin: right top;
+				background-color: $blue;
+				background-blend-mode: multiply;
+				background-image: url('../images/image.jpg');
 				@include mq($mobile) {
-					font-size: 20px;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					transform: none;
+					clip-path: polygon(0 15%, 100% 0, 100% 80%, 0 100%);
+					background-image: url('../images/image-2.jpg');
 				}
 			}
 		}
-		.title {
-			margin-top: 0;
-			font-size: 28px;
-			color: $blue;
-			@include mq($mobile) {
-				font-size: 30px;
+		.right {
+			width: 50%;
+			height: 100%;
+			display: flex;
+			align-items: center;
+			transform: skewX(-10deg);
+			background-color: $gray;
+			.inner {
+				width: 100%;
+				max-width: 550px;
+				position: relative;
+				z-index: 2;
+				padding: 10vw 0 10vw 3vw;
+				transform: skewX(10deg);
+				@include mq($mobile) {
+					max-width: 100%;
+					margin-left: auto;
+					margin-right: auto;
+					text-align: center;
+				}
+				p {
+					@include mq($mobile) {
+						font-size: 20px;
+					}
+				}
 			}
-		}
-		.btn-wrapper {
-			margin-top: 30px;
-			@include mq($mobile) {
-				margin-top: 50px;
+			.title {
+				margin-top: 0;
+				font-size: 28px;
+				color: $blue;
+				@include mq($mobile) {
+					font-size: 30px;
+				}
+			}
+			.btn-wrapper {
+				margin-top: 30px;
+				@include mq($mobile) {
+					margin-top: 50px;
+				}
 			}
 		}
 	}
